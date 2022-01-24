@@ -10,7 +10,7 @@ fn main() {
 
         if count == 3 {
             // Skip the rest of this iteration
-            continue;
+            continue
         }
 
         if count == 5 {

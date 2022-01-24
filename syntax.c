@@ -121,16 +121,16 @@ void INSTR(int loops_indicator){
         Test_Symbole(PV_TOKEN,PV_ERROR);
         break;
     case WHILE_TOKEN:
-        WHILE(1);
+        WHILE();
         break;
     case LOOP_TOKEN:
-        LOOP(1);
+        LOOP();
         break;
     case FOR_TOKEN:
-        FOR(1);
+        FOR();
         break;
     case IF_TOKEN:
-        IF(1);
+        IF(loops_indicator);
         break;
     case CONTI_TOKEN :
        if(loops_indicator)
@@ -161,17 +161,17 @@ void IF(int indic){
     }
 
 }
-void WHILE(int indic){
+void WHILE(){
     Test_Symbole(WHILE_TOKEN, WHILE_ERROR);
     EXPR();
-    BLOC(0,indic);
+    BLOC(0,1);
 
 }
-void LOOP(int indic){
+void LOOP(){
     Test_Symbole(LOOP_TOKEN, LOOP_ERROR);
-    BLOC(0,indic);
+    BLOC(0,1);
 }
-void FOR(int indic){
+void FOR(){
     Test_Symbole(FOR_TOKEN,FOR_ERROR);
     Test_Symbole(ID_TOKEN,ID_ERROR);
     Test_Symbole(PO_TOKEN,PO_ERROR);
@@ -179,7 +179,7 @@ void FOR(int indic){
     Test_Symbole(RANG_TOKEN,RANG_ERROR);
     Test_Symbole(NUM_TOKEN,NUM_ERROR);
     Test_Symbole(PF_TOKEN,PF_ERROR);
-    BLOC(0,indic);
+    BLOC(0,1);
     
 }
 void EXPR(){
