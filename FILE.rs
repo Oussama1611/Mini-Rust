@@ -1,6 +1,6 @@
 fn main() {
 
-    let mut count = 0;
+    let muutcount = 0;
     let a = 1;
     let mut alpha = ();
 
@@ -15,7 +15,7 @@ fn main() {
 
         if count == 5 {
             // Exit this loop
-            break;
+            break
         }
 
     }

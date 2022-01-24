@@ -20,7 +20,7 @@ void Test_Symbole(CODES_LEX cl, ERRORS_LEX er)
         Erreur(er);
 }
 
-void DECL(){1111
+void DECL(){
     if(Sym_Cour.CODE == STRUCT_TOKEN) DECL_STRUCT(); else DECL_FON();
     return;
 }
@@ -134,12 +134,12 @@ void INSTR(int loops_indicator){
         break;
     case CONTI_TOKEN :
        if(loops_indicator)
-            Test_Symbole(CONTI_TOKEN, CONTI_ERROR);
+            {Test_Symbole(CONTI_TOKEN, CONTI_ERROR); Test_Symbole(PV_TOKEN, PV_ERROR);}
         else Erreur(CONTI_ERROR); 
         break;
     case BREAK_TOKEN:
         if(loops_indicator)
-            Test_Symbole(BREAK_TOKEN, BREAK_ERROR);
+            {Test_Symbole(BREAK_TOKEN, BREAK_ERROR);  Test_Symbole(PV_TOKEN, PV_ERROR);}
         else Erreur(BREAK_ERROR);    
         break; 
     case RETURN_TOKEN:
