@@ -10,12 +10,12 @@ fn main() {
 
         if count == 3 {
             // Skip the rest of this iteration
-            continue
+            continue;
         }
 
         if count == 5 {
             // Exit this loop
-            break
+            break;
         }
 
     }
@@ -34,6 +34,7 @@ fn main() {
     }
     fn fizzbuzz(n : u32) -> bool {
         if is_divisible_by(n,15) {
+            println!("abc");
             //dsihbvs
       
         } else if is_divisible_by(n, 3) {

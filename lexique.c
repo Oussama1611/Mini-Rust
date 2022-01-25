@@ -4,7 +4,7 @@
 #include "lexique.h"
 #include "erreurs.h"
 #include "syntax.h"
-#define SIZE_TOKENS 17
+#define SIZE_TOKENS 18
 
 
 FILE* file;
@@ -15,9 +15,9 @@ int arriere;
 const char* mots_cles[SIZE_TOKENS][2] = { {"fn","FN_TOKEN"}, {"const","CONST_TOKEN"},{"let","LET_TOKEN"}, 
 {"mut","MUT_TOKEN"},{"if","IF_TOKEN"},{"else","ELSE_TOKEN"},{"false","FALSE_TOKEN"},{"true","TRUE_TOKEN"},
 {"while","WHILE_TOKEN"},{"loop","LOOP_TOKEN"},{"for","FOR_TOKEN"},{"bool","BOOL_TOKEN"},{"in","IN_TOKEN"},{"continue","CONTI_TOKEN"},
-{"break","BREAK_TOKEN"},{"struct","STRUCT_TOKEN"},{"return","RETURN_TOKEN"}};
+{"break","BREAK_TOKEN"},{"struct","STRUCT_TOKEN"},{"println","PRINT_TOKEN"},{"return","RETURN_TOKEN"}};
 
-const int codes[SIZE_TOKENS] = {FN_TOKEN, CONST_TOKEN, LET_TOKEN, MUT_TOKEN, IF_TOKEN, ELSE_TOKEN, FALSE_TOKEN, TRUE_TOKEN, WHILE_TOKEN, LOOP_TOKEN, FOR_TOKEN, BOOL_TOKEN, IN_TOKEN, CONTI_TOKEN, BREAK_TOKEN, STRUCT_TOKEN, RETURN_TOKEN};
+const int codes[SIZE_TOKENS] = {FN_TOKEN, CONST_TOKEN, LET_TOKEN, MUT_TOKEN, IF_TOKEN, ELSE_TOKEN, FALSE_TOKEN, TRUE_TOKEN, WHILE_TOKEN, LOOP_TOKEN, FOR_TOKEN, BOOL_TOKEN, IN_TOKEN, CONTI_TOKEN, BREAK_TOKEN, STRUCT_TOKEN, PRINT_TOKEN, RETURN_TOKEN};
 
 void symbol_suivant(){
     if(arriere){
@@ -193,6 +193,12 @@ void lire_special(){
         Sym_Cour.CODE = VIR_TOKEN;
         strcpy(Sym_Cour.NOM,"VIR_TOKEN");
         printf(",\t");
+        return;
+    }
+    if(symbol->c =='"'){
+        Sym_Cour.CODE = GUILL_TOKEN;
+        strcpy(Sym_Cour.NOM,"GUILL_TOKEN");
+        printf("\"\t");
         return;
     }
     if(symbol->c=='%'){

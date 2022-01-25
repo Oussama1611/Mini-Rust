@@ -146,6 +146,9 @@ void INSTR(int loops_indicator){
         Test_Symbole(RETURN_TOKEN, RETURN_ERROR);  
         EXPR();
         Test_Symbole(PV_TOKEN,PV_ERROR);
+        break;    
+    case PRINT_TOKEN:
+        PRINT();
         break;             
     default:
         Erreur(INSTR_ERROR);
@@ -284,6 +287,23 @@ void OPR(){
     default:
         break;
     }    
+}
+
+void PRINT(){
+    Test_Symbole(PRINT_TOKEN,PRINT_ERROR);
+    Test_Symbole(NON_TOKEN,NON_ERROR);
+    Test_Symbole(PO_TOKEN,PO_ERROR);
+    if(Sym_Cour.CODE == GUILL_TOKEN){
+        Test_Symbole(GUILL_TOKEN,GUILL_ERROR);
+        while (Sym_Cour.CODE != GUILL_TOKEN)
+        {
+            symbol_suivant();
+            token_suivant(); 
+        }
+        Test_Symbole(GUILL_TOKEN,GUILL_ERROR);
+    } else Test_Symbole(ID_TOKEN,ID_ERROR);
+    Test_Symbole(PF_TOKEN,PF_ERROR);
+    Test_Symbole(PV_TOKEN,PV_ERROR);
 }
 
 void NEG(){
