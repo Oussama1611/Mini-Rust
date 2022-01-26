@@ -1,7 +1,10 @@
-fn main() {
+//ueiwhfiuskhf
+//oishfdoihf
+//dsfnsoife
+fn main() { //spojfoih
 
-    let muutcount = 0;
-    let a = 1;
+    let count = 0;
+    let a = 189 ;
     let mut alpha = ();
 
     // Infinite loop
@@ -9,17 +12,18 @@ fn main() {
         count = count + 1;
 
         if count == 3 {
-            // Skip the rest of this iteration
             continue;
         }
 
         if count == 5 {
-            // Exit this loop
+            // Exit this loop   
+            //uigdfgb
+            //waudgskiauh
             break;
         }
 
     }
-     // A counter variable
+         // A counter variable
      let mut n = 1;
      // Loop while `n` is less than 101
      while n != 101 {
@@ -34,8 +38,8 @@ fn main() {
     }
     fn fizzbuzz(n : u32) -> bool {
         if is_divisible_by(n,15) {
-            println!("abc");
-            //dsihbvs
+            println!(abc); 
+            //wdbuaihdiu
       
         } else if is_divisible_by(n, 3) {
             
@@ -47,3 +51,5 @@ fn main() {
         //asbufcyueabisk          
     }
 }
+//eiohfoehcsd
+//fopjeoihfeoi

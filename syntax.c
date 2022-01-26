@@ -21,6 +21,9 @@ void Test_Symbole(CODES_LEX cl, ERRORS_LEX er)
 }
 
 void DECL(){
+    sauter_espace();
+    sauter_commentaire();    // sauter un commeentaire a l'exterieur d'une declaration
+    sauter_espace();
     if(Sym_Cour.CODE == STRUCT_TOKEN) DECL_STRUCT(); else DECL_FON();
     return;
 }
@@ -89,6 +92,7 @@ void BLOC(int fun_indicator, int loops_indicator){
     }
     Test_Symbole(ACCOLF_TOKEN,ACCOLF_ERROR);
 }
+
 
 
 void INSTR(int loops_indicator){

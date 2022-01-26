@@ -114,9 +114,14 @@ void sauter_commentaire(){
             while(symbol->c!='\n'){
                 symbol_suivant();
             }
+            symbol_suivant();
         }
     }
+    sauter_espace();
+    if(symbol->c =='/') sauter_commentaire();
 }
+
+
 void lire_special(){
 
     if (symbol->c==')'){
@@ -183,7 +188,7 @@ void lire_special(){
         printf("*\t");
         return;
     }
-    if(symbol->c=='/'){
+    if(symbol->c=='/'){ 
         Sym_Cour.CODE = DIV_TOKEN;
         strcpy(Sym_Cour.NOM,"DIV_TOKEN");
         printf("/\t");
@@ -317,7 +322,7 @@ void print_token(){
 
 void token_suivant(){
 
-    sauter_espace();
+    sauter_espace(); 
     sauter_commentaire();
     sauter_espace();
     if(ispunct(symbol->c)){
