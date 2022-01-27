@@ -4,6 +4,7 @@
 #include "lexique.h"
 #include "erreurs.h"
 #include "syntax.h"
+#include "semantique.h"
 
 
 
@@ -17,8 +18,47 @@ void Test_Symbole(CODES_LEX cl, ERRORS_LEX er)
         token_suivant(); // c'est ainsi pour passer au token suivant
     }
     else
-        Erreur(er);
+        Erreur(er);  
 }
+
+void Test_Symbole_ID(CODES_LEX cl,TSYM TIDF, ERRORS_LEX er) // FONCTION POUR L'ANALYSE SEMANTIQUE TEST DES ID_TOKEN
+{   
+    int i;
+    if(TIDF == TISNTR){
+        int i = idf_existe();
+        if(i == -1)
+            Erreur(UNDECL_ID_ERROR); // UTILISER UNE VARIABLE SANS DECLARATION
+        else{
+            switch(T_IDFS[i].TIDF){
+                case TMUT: // ON FAIT RIEN SI L'IDENTIFIFANT EST DE TYPE MUTABLE
+                    break;
+                case TLET:
+                    Erreur(UNCHANGED_CONST_ERREUR);  
+                    break;  
+                case TCONST:
+                    Erreur(UNCHANGED_CONST_ERREUR);
+                    break;
+                default:
+                    break;
+            }
+        }    
+    }
+    else if (idf_existe() != -1){
+        Erreur(REDECL_ID_ERROR);
+    } else {
+        ajouter_idf(TIDF);
+        for(i=0;i<MAX_IDFS_NBRE;i++) printf("%s %d \t",T_IDFS[i].NOM, T_IDFS[i].TIDF);
+        printf("\n");
+    } 
+    if (Sym_Cour.CODE == cl )
+    {   
+        symbol_suivant();
+        token_suivant(); 
+    }
+    else
+        Erreur(er);  
+}
+
 
 void DECL(){
     sauter_espace();
@@ -30,7 +70,7 @@ void DECL(){
 
 void DECL_STRUCT(){
     Test_Symbole(STRUCT_TOKEN,STRUCT_ERROR);
-    Test_Symbole(ID_TOKEN,ID_ERROR);
+    Test_Symbole_ID(ID_TOKEN,TSTRUCT,ID_ERROR);
     Test_Symbole(ACCOLO_TOKEN,ACCOLF_ERROR);
     while(1){
         ARG();
@@ -41,7 +81,7 @@ void DECL_STRUCT(){
 
 void DECL_FON(){
     Test_Symbole(FN_TOKEN,FN_ERROR);
-    Test_Symbole(ID_TOKEN,ID_ERROR);
+    Test_Symbole_ID(ID_TOKEN,TFONC,ID_ERROR);
     if(Sym_Cour.CODE == UNIT_TOKEN) Test_Symbole(UNIT_TOKEN, UNIT_ERROR);
     else {
         Test_Symbole(PO_TOKEN,PO_ERROR);
@@ -78,7 +118,7 @@ void TYPE(){
 void ARG(){
     if(Sym_Cour.CODE == MUT_TOKEN)
         Test_Symbole(MUT_TOKEN,MUT_ERROR);
-    Test_Symbole(ID_TOKEN,ID_ERROR);
+    Test_Symbole_ID(ID_TOKEN,TISNTR,ID_ERROR);
     Test_Symbole(COL_TOKEN,COL_ERROR);
     TYPE();
 }
@@ -99,7 +139,7 @@ void INSTR(int loops_indicator){
     switch (Sym_Cour.CODE)
     {
     case ID_TOKEN:
-        Test_Symbole(ID_TOKEN,ID_ERROR);
+        Test_Symbole_ID(ID_TOKEN,TISNTR,ID_ERROR);
         Test_Symbole(AFF_TOKEN,AFF_ERROR);
         EXPR();
         if(Sym_Cour.CODE ==PV_TOKEN) Test_Symbole(PV_TOKEN,PV_ERROR);  else {EXPR(); break;}
@@ -109,9 +149,8 @@ void INSTR(int loops_indicator){
         break;
     case LET_TOKEN:
         Test_Symbole(LET_TOKEN,LET_ERROR);
-        if(Sym_Cour.CODE == MUT_TOKEN) Test_Symbole(MUT_TOKEN,MULT_ERROR);
-
-        Test_Symbole(ID_TOKEN,ID_ERROR);
+        if(Sym_Cour.CODE == MUT_TOKEN) {Test_Symbole(MUT_TOKEN,MULT_ERROR); Test_Symbole_ID(ID_TOKEN,TMUT,ID_ERROR);}
+        else Test_Symbole_ID(ID_TOKEN,TLET,ID_ERROR);
         Test_Symbole(AFF_TOKEN,AFF_ERROR);
         EXPR();
         Test_Symbole(PV_TOKEN,PV_ERROR);
@@ -119,7 +158,7 @@ void INSTR(int loops_indicator){
         break;
     case CONST_TOKEN:
         Test_Symbole(CONST_TOKEN, CONST_ERROR);
-        Test_Symbole(ID_TOKEN,ID_ERROR);
+        Test_Symbole_ID(ID_TOKEN,TCONST,ID_ERROR);
         Test_Symbole(AFF_TOKEN,AFF_ERROR);
         EXPR();
         Test_Symbole(PV_TOKEN,PV_ERROR);
@@ -180,7 +219,7 @@ void LOOP(){
 }
 void FOR(){
     Test_Symbole(FOR_TOKEN,FOR_ERROR);
-    Test_Symbole(ID_TOKEN,ID_ERROR);
+    Test_Symbole_ID(ID_TOKEN,TISNTR,ID_ERROR);
     Test_Symbole(PO_TOKEN,PO_ERROR);
     Test_Symbole(NUM_TOKEN,NUM_ERROR);
     Test_Symbole(RANG_TOKEN,RANG_ERROR);
@@ -197,7 +236,7 @@ void EXPR(){
         if(IS_OPR()) {OPR(); EXPR();}
         break;
     case ID_TOKEN:
-        Test_Symbole(ID_TOKEN,ID_ERROR);
+        Test_Symbole_ID(ID_TOKEN,TISNTR,ID_ERROR);
         if(Sym_Cour.CODE == PO_TOKEN){
             Test_Symbole(PO_TOKEN, PO_ERROR); 
             ARG_VERI();
@@ -305,7 +344,7 @@ void PRINT(){
             token_suivant(); 
         }
         Test_Symbole(GUILL_TOKEN,GUILL_ERROR);
-    } else Test_Symbole(ID_TOKEN,ID_ERROR);
+    } else Test_Symbole_ID(ID_TOKEN,TISNTR,ID_ERROR);
     Test_Symbole(PF_TOKEN,PF_ERROR);
     Test_Symbole(PV_TOKEN,PV_ERROR);
 }

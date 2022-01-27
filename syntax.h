@@ -2,8 +2,10 @@
 #define _SYNTAX_H
 
 #include "erreurs.h"
+#include "semantique.h"
 
 void Test_Symbole(CODES_LEX cl, ERRORS_LEX er); 
+void Test_Symbole_ID(CODES_LEX cl, TSYM TIDF, ERRORS_LEX er);
 
 
 void DECL();

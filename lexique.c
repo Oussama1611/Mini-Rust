@@ -46,7 +46,7 @@ void assign_nom_token(char* mot){
             break;
         } else {
             Sym_Cour.CODE=ID_TOKEN;
-            strcpy(Sym_Cour.NOM, "ID_TOKEN");
+            strcpy(Sym_Cour.NOM, mot); // avant les regles semantiques on a: strcpy(Sym_Cour.NOM, "ID_TOKEN");
         }
     
     } 
@@ -102,7 +102,8 @@ void lire_nombre(){
     revenir_arriere();
     Sym_Cour.CODE=NUM_TOKEN;
     strcpy(Sym_Cour.NOM,"NUM_TOKEN");
-    printf("%s\t",nombre);
+    Sym_Cour.val=atoi(nombre); //  on ajoute la valeur de nombre apres consideration des regles semantiques
+    printf("%s\t",nombre); 
     free(nombre);
    
 }

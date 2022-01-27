@@ -27,6 +27,7 @@ typedef enum {
 typedef struct { 
     CODES_LEX CODE; 
     char NOM[20]; 
+    int val;
 } TSym_Cour;
 
 //Les prototypes des fonctions : 
