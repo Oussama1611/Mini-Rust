@@ -29,14 +29,14 @@ int main(int argc, char* argv[]){
         printf("On ne peut pas ouvrir le fichier ");
         exit(0);
     }
+    symbol_suivant();
+    token_suivant();
     while (Sym_Cour.CODE != END_TOKEN)
     {
-        symbol_suivant();
-        token_suivant();
         DECL(); // commencement d'analyse syntaxique : DECL = DECLARATION GLOBALE
     }
 
-    printf("Your code is compiled succefully !\n");
+    printf("\n \033[0;32m Your code is compiled succefully !\n\n");
 
     
     return 0;

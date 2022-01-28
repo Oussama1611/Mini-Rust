@@ -4,12 +4,13 @@
 
 #define MAX_IDFS_NBRE 40
 typedef enum {
-    TISNTR, // ce type est specialelement pour distinguer les IDs lors des instructions
+    TINSTR, // ce type est specialelement pour distinguer les IDs lors des instructions
     TMUT, // type MUTABLE : let mut a = 1;
     TLET, // type LET : let a = 0;
     TCONST, // type const let a : i32 = 6;
     TFONC, // type FN : fn fonction(){...}
     TSTRUCT, // type STRUCT : struct qwerty{...}
+    TARG, // type argument des fonctions 
 } TSYM;
 
 

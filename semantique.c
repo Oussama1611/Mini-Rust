@@ -31,11 +31,7 @@ void ajouter_idf(TSYM TIDF){
     } printf("TABLE DES IDS EST REMPLIE !!\n");
 }
 
-// void mettre_a_jour_idf(){
-//     int i = idf_existe();
-//     if(i!= -1){ 
-//         strcpy(T_IDFS[i].NOM, Sym_Cour.
-// }
+
 
 
 

@@ -1,12 +1,17 @@
 //ueiwhfiuskhf
 //oishfdoihf
 //dsfnsoife
+struct Person {
+    nom: String,
+    age: u32,
+}
 fn main() { //spojfoih
 
     let mut count = 0;
-    let mut a = 189 ;
+    //let mut a = 189 ;
     let mut alpha = ();
     let mut n =0;
+    let mut a;
 
     // Infinite loop
     loop {
@@ -17,6 +22,7 @@ fn main() { //spojfoih
         }
 
         if count == 5 {
+            a = a -2;
             // Exit this loop   
             //uigdfgb
             //waudgskiauh
@@ -41,11 +47,12 @@ fn main() { //spojfoih
 
     }
 
-    fn fizzbuzz(n : u32) -> bool {
+    fn fizzbuzz(m : u32) -> bool {
         if is_divisible_by(n,15) {
             println!("abc"); 
             //wdbuaihdiu
-      
+            //efwef
+        m=l-1;
         } else if is_divisible_by(n, 3) { //sdfibafn //afdewfwfre
             
         } else if is_divisible_by(n, 5) {
