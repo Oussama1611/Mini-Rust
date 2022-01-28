@@ -146,9 +146,6 @@ void INSTR(int loops_indicator){
         EXPR();
         if(Sym_Cour.CODE ==PV_TOKEN) Test_Symbole(PV_TOKEN,PV_ERROR);  else {EXPR(); break;}
         break;
-    case PV_TOKEN:
-        Test_Symbole(PV_TOKEN,PV_ERROR);
-        break;
     case LET_TOKEN:
         Test_Symbole(LET_TOKEN,LET_ERROR);
         if(Sym_Cour.CODE == MUT_TOKEN) {Test_Symbole(MUT_TOKEN,MUT_ERROR); Test_Symbole_ID(ID_TOKEN,TMUT,ID_ERROR);}

@@ -52,13 +52,14 @@ fn main() { //spojfoih
             println!("abc"); 
             //wdbuaihdiu
             //efwef
-        m=l-1;
+        m=m-1;
         } else if is_divisible_by(n, 3) { //sdfibafn //afdewfwfre
             
         } else if is_divisible_by(n, 5) {
           
         } else {
            //sachubs
+           ;
         }
         //asbufcyueabisk          
     }
