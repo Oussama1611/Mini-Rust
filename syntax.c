@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "lexique.h" //int counter already defined here!
+#include "lexique.h"
 #include "erreurs.h"
 #include "syntax.h"
 

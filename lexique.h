@@ -29,8 +29,6 @@ typedef struct {
     int val;
 } TSym_Cour;
 
-// counteur des lignes 
-// int COUNTER;
 
 //Les prototypes des fonctions : 
 
