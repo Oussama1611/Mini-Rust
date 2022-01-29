@@ -21,7 +21,7 @@ typedef struct {
 
 
 
-T_TAB_IDF  T_IDFS[MAX_IDFS_NBRE];
+// T_TAB_IDF  T_IDFS[MAX_IDFS_NBRE];
 
 int idf_existe();
 void ajouter_idf(TSYM TIDF);

@@ -1,7 +1,6 @@
 #ifndef _COMPILA_H
 #define _COMPILA_H
 
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -31,7 +30,7 @@ typedef struct {
 } TSym_Cour;
 
 // counteur des lignes 
-int COUNTER;
+// int COUNTER;
 
 //Les prototypes des fonctions : 
 

@@ -1,15 +1,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "lexique.h"
+#include "lexique.h" //int counter already defined here!
 #include "erreurs.h"
 #include "syntax.h"
-#include "semantique.h"
 
 
 
 extern TSym_Cour Sym_Cour;
 extern int COUNTER;
+extern T_TAB_IDF  T_IDFS[MAX_IDFS_NBRE];
 
 void Test_Symbole(CODES_LEX cl, ERRORS_LEX er)
 {   

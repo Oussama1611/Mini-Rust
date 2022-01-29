@@ -59,7 +59,7 @@ fn main() { //spojfoih
           
         } else {
            //sachubs
-           ;
+           
         }
         //asbufcyueabisk          
     }

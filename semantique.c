@@ -7,7 +7,7 @@
 
 
 extern TSym_Cour Sym_Cour;
-
+T_TAB_IDF  T_IDFS[MAX_IDFS_NBRE];
 
 int idf_existe(){
     int i;
