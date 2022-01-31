@@ -10,7 +10,7 @@ Rust est un langage de programmation compilé multi-paradigme conçu et dévelop
 En 2020, ses domaines de prédilection sont la programmation système, les applications en ligne de commande, les applications Web via WebAssembly, les services réseaux et les systèmes embarqués.
 ___
 ### **Hello, World par Rust :**
-```
+```rust
     fn main(){
         println!("Hello, world!");
     }
@@ -22,10 +22,10 @@ ___
 
 Nous utilisons les notations suivantes dans la grammaire :
 
+Notation | Signification
+-------- | ------------------------------------------------------------------------------
 ⟨regle⟩⋆  | repetition de la regle ⟨regle⟩ un nombre quelconque de fois (y compris aucune)
--------- | ------------------------------------------------------------------------------
 ⟨regle⟩+  | repetition de la regle ⟨regle⟩ au moins une fois
--------- | ------------------------------------------------------------------------------
 ⟨regle⟩?  | repetition optionnelle de la regle ⟨regle⟩ (i.e. 0 ou 1 fois)
 
 
@@ -33,7 +33,7 @@ Nous utilisons les notations suivantes dans la grammaire :
 
 * *Les blancs* : espaces, tabulations, les retour-chariot.
 
-* *Les commentaires* : commencent par // et s'étendent jusqu'à la fin de la ligne.
+* *Les commentaires* : commencent par '//' et s'étendent jusqu'à la fin de la ligne.
 
 * *Les identificateurs* : obeeissent à l’expression reguliere ⟨ID⟩ suivante :
 
@@ -125,11 +125,12 @@ ___
 ### **Pour exécuter le projet :**
 Pour exécuter le compilateur, utilisez les commandes suivantes :
 1. Compiler le projet à l'aide de gcc :
-    ``` cd "Mini-Rust"
+    ```shell
+        cd "Mini-Rust"
         gcc *.c -o compiler
     ```
 2. Exécuter le compilateur en passant le fichier Rust .rs à compiler :
-    ```
+    ```shell
         ./compiler "Fichier Rust"
     ```
 
