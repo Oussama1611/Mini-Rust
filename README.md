@@ -5,7 +5,7 @@ Le but de ce projet est de réaliser un mini-compilateur du langage de programma
 ___
 ### **Le langage Rust :**
 
-Rust est un langage de programmation compilé multi-paradigme conçu et développé par Mozilla Research depuis 20105. Il a été conçu pour être « un langage fiable, concurrent, pratique », supportant les styles de programmation purement fonctionnel, modèle d'acteur, procédural, ainsi qu'orienté objet sous certains aspects.
+Rust est un langage de programmation compilé multi-paradigme conçu et développé par Mozilla Research depuis 2015. Il a été conçu pour être « un langage fiable, concurrent, pratique », supportant les styles de programmation purement fonctionnel, modèle d'acteur, procédural, ainsi qu'orienté objet sous certains aspects.
 
 En 2020, ses domaines de prédilection sont la programmation système, les applications en ligne de commande, les applications Web via WebAssembly, les services réseaux et les systèmes embarqués.
 ___
