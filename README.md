@@ -58,7 +58,6 @@ Notation | Signification
     mut,
     const,
     return,
-    struct,
     while,
     loop,
     for,
